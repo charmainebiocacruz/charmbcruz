@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="UTF-8">
+    <title>AMIRA Scientific Calculator </title> 
+    <script language="Javascript"> 
+        /* The purpose of this function is to calculate the factorial of element */ 
+        function compute(sci_calc) { 
+              
+            /* This code checks if the function includes a "! character" then it calculate factorial of the number */ 
+            if(sci_calc.scr_disp.value.includes("!")) { 
+                  
+                s = sci_calc.scr_disp.value.length; 
+                num = Digit(sci_calc.scr_disp.value.substring(0, s-1)); 
+                fac = 1; 
+                  
+                for(itr = 2; itr <= num; itr++) 
+                    fac = fac*itr; 
+                sci_calc.scr_disp.value = fac; 
+            } 
+              
+            /* This code checks function includes a "% character" then it calculate the % of the number */ 
+            else if(sci_calc.scr_disp.value.includes("%")) { 
+                  
+               // s = sci_calc.scr_disp.value.length; 
+               // num = Digit(sci_calc.scr_disp.value.substring(0, s-1)); 
+                sci_calc.scr_disp.value = n/100; 
+            } 
+  
+            else     
+                /* This code evalutes and execute the output */ 
+                sci_calc.scr_disp.value = eval(sci_calc.scr_disp.value); 
+        } 
+      	/* The purpose of this function is the for backspace operation */ 
+        function bckspc(sci_calc) {                                              
+            s = sci_calc.scr_disp.value.length; 
+            sci_calc.scr_disp.value = sci_calc.scr_disp.value.substring(0, s-1); 
+        } 
+
+    </script> 
+<!-- The function of this CSS property provide and interface for the calculator  -->
+    <style> 
+      
+      /* This code sets the style for the title*/ 
+        .title {  
+            margin-bottom: 10px; padding: 20px 0; font-size: 20px;font-weight:bold; text-align:center;  
+	    width: 447px; background-color:gray; color:white;border: solid black 2px;  
+        }  
+          
+        /* This code sets the style for the buttons */ 
+        #cmd_btns { 
+            width: 100%;height: 40px;font-size: 30px; 
+        } 
+          
+        input[type="button"] {  
+            background-color:gray;color: white; border: solid black 2px;width:100%  
+        }  
+          
+        /* This code sets the style for the TextArea input  */ 
+        input[type="text"] {  
+            background-color:white; border: solid black 2px; width:100%  
+        }    
+    </style> 
+
+</head> 
+<body bgcolor="orange";>
+<center> 
+    <div class = title >AMIRA SCIENTIFIC CALCULATOR</div>  
+    <form name = "sci_calc"> 
+    <table id  = "sci_calc" border = 5 bgcolor=gray> 
+    <tr> 
+        <td colspan=5><input id="cmd_btns" name="scr_disp" onkeypress="return event.charCode >= 48 
+          && event.charCode <= 57" type="text"> 
+        </td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="7" OnClick="sci_calc.scr_disp.value+='7'"></td> 
+        <td><input id="cmd_btns" type="button" value="8" OnClick="sci_calc.scr_disp.value+='8'"></td> 
+        <td><input id="cmd_btns" type="button" value="9" OnClick="sci_calc.scr_disp.value+='9'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="Clr" OnClick="sci_calc.scr_disp.value=''"></td> 
+        <td><input id="cmd_btns" type="button" value="<---" OnClick="bckspc(this.form)"> </td> 
+        <td><input id="cmd_btns" type="button" value="=" OnClick="compute(this.form)"> </td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="4" OnClick="sci_calc.scr_disp.value+='4'"></td> 
+        <td><input id="cmd_btns" type="button" value="5" OnClick="sci_calc.scr_disp.value+='5'"></td> 
+        <td><input id="cmd_btns" type="button" value="6" OnClick="sci_calc.scr_disp.value+='6'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="-" OnClick="sci_calc.scr_disp.value+='-'"></td>
+        <td><input id="cmd_btns" type="button" value="%" OnClick="sci_calc.scr_disp.value+='%'"></td> 
+
+        <td><input id="cmd_btns" type="button" value="cos" OnClick="sci_calc.scr_disp.value='Math.cos('"></td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="1" OnClick="sci_calc.scr_disp.value+='1'"></td> 
+        <td><input id="cmd_btns" type="button" value="2" OnClick="sci_calc.scr_disp.value+='2'"></td> 
+        <td><input id="cmd_btns" type="button" value="3" OnClick="sci_calc.scr_disp.value+='3'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="*" OnClick="sci_calc.scr_disp.value+='*'"></td> 
+
+        <td><input id="cmd_btns" type="button" value="n!"OnClick="sci_calc.scr_disp.value+='!'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="sin" OnClick="sci_calc.scr_disp.value='Math.sin('"></td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="." OnClick="sci_calc.scr_disp.value+='.'"></td> 
+        <td><input id="cmd_btns" type="button" value="0" OnClick="sci_calc.scr_disp.value+='0'"></td> 
+        <td><input id="cmd_btns" type="button" value="," OnClick="sci_calc.scr_disp.value+=','"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="+" OnClick="sci_calc.scr_disp.value+='+'"></td> 
+        <td><input id="cmd_btns" type="button" value="/" OnClick="sci_calc.scr_disp.value+='/'"></td> 
+        
+        <td><input id="cmd_btns" type="button" value="tan" OnClick="sci_calc.scr_disp.value='Math.tan('"></td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="E"   OnClick="sci_calc.scr_disp.value+='Math.E'"></td> 
+
+        <td><input id="cmd_btns" type="button" value="pi"  OnClick="sci_calc.scr_disp.value+='Math.PI'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="^"   OnClick="sci_calc.scr_disp.value+='Math.pow('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="("   OnClick="sci_calc.scr_disp.value+='('"></td> 
+        <td><input id="cmd_btns" type="button" value=")"   OnClick="sci_calc.scr_disp.value+=')'"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="log" OnClick="sci_calc.scr_disp.value='Math.log('"></td> 
+    </tr> 
+    <tr> 
+        <td><input id="cmd_btns" type="button" value="sqrt" OnClick="sci_calc.scr_disp.value+='Math.sqrt('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="ln2"  OnClick="sci_calc.scr_disp.value+='Math.LN2('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="ln10" OnClick="sci_calc.scr_disp.value+='Math.Log10('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="l2e"  OnClick="sci_calc.scr_disp.value+='Math.LOG2E('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="l10e" OnClick="sci_calc.scr_disp.value+='Math.log10('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="exp"  OnClick="sci_calc.scr_disp.value='Math.exp('"></td> 
+    </tr>
+<tr> 
+        <td><input id="cmd_btns" type="button" value="sin-1" OnClick="sci_calc.scr_disp.value+='Math.asin('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="cos-1"  OnClick="sci_calc.scr_disp.value+='Math.acos('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="tan-1" OnClick="sci_calc.scr_disp.value+='Math.atan('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="asinh"  OnClick="sci_calc.scr_disp.value+='Math.asinh('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="cosh" OnClick="sci_calc.scr_disp.value+='Math.cosh('"></td> 
+          
+        <td><input id="cmd_btns" type="button" value="atanh"  OnClick="sci_calc.scr_disp.value='Math.atanh('"></td> 
+    </tr>
+     </table> 
+    </form> 
+</center>
+</body> 
+</html>
